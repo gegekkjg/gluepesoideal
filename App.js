@@ -39,44 +39,44 @@ export default function App() {
 
   return (
     <GluestackUIProvider config={config}>
-      <Box p="$2" h={"#full"} w={"#full"} borderRadius={"$md"}>
-        <Center  h={"$full"}>
-          <Heading>Peso Ideal</Heading>
+      <Box p="$2" h={"#full"} w={"#full"} borderRadius={"$md"} display='flex' justifyContent='center' alignSelf='center'>
+        <Center  h={"$full"} alignSelf='center'>
+          <Heading color='#285b99'>Peso Idea</Heading>
           <FormControl>
             <FormControlLabel>
-              <FormControlErrorText>Peso</FormControlErrorText>
+              <FormControlErrorText fontSize={20} color='#285b99'>Peso</FormControlErrorText>
             </FormControlLabel>
-            <Input w={100} h={35}>
+            <Input w={"#full"} h={35}>
               <InputField value={peso} onChangeText={setPeso} keyboardType='numeric'/>
             </Input>
             <FormControlLabel>
-              <FormControlErrorText>Altura</FormControlErrorText>
+              <FormControlErrorText fontSize={20} paddingTop={10} color='#285b99'>Altura</FormControlErrorText>
             </FormControlLabel>
-            <Input w={100} h={35}>
+            <Input w={"#full"} h={35}>
               <InputField value={altura} onChangeText={setAltura} keyboardType='number-pad'/>
             </Input>
             <FormControlLabel>
-                  <FormControlLabelText>Sexo</FormControlLabelText>
+                  <FormControlLabelText fontSize={20} paddingTop={10} color='#285b99'>Sexo</FormControlLabelText>
                 </FormControlLabel>
-                <HStack w={"$full"} space="md" justifyContent="center" alignItems="center">
-                    <FormControlLabelText>Homem</FormControlLabelText>
+                <HStack w={"$full"} space="md" alignItems="center">
+                    <FormControlLabelText color='#247cc0'>Homem</FormControlLabelText>
                     <Switch value={sexo} onValueChange={setSexo} />
-                    <FormControlLabelText>Mulher</FormControlLabelText>
+                    <FormControlLabelText color='#f6447a'>Mulher</FormControlLabelText>
                 </HStack>
-                <Box display='flex' flexDirection='row' justifyContent='space-between'>
-                <Button onPress={calcularHandle} bg='#5361ac'>
+                <Box display='flex' flexDirection='row' justifyContent='space-around'>
+                <Button onPress={calcularHandle} bg='#124a87'>
                     <ButtonText>Calcular</ButtonText>
                 </Button>
-                <Button onPress={limparHandle} bg='#5361ac'>
+                <Button onPress={limparHandle} bg='#124a87'>
                     <ButtonText>Limpar</ButtonText>
                 </Button>
+                </Box>
                 <Box justifyContent="space-between" alignItems="center" height={100} flexDirection="row">
-                    <Text>Resultado</Text>
+                    <Text fontSize={20} color='#285b99'>Resultado:</Text>
                     <Text fontWeight="$bold">{resultado}</Text>
                 </Box>
-                </Box>
           </FormControl>
-          <Image source={sexo ? mulher : homem} alt="imagem do tipo do sexo"/>
+          <Image source={sexo ? mulher : homem} alt="imagem do tipo do sexo" w={200} h={200}/>
         </Center>
       </Box>
     </GluestackUIProvider>
